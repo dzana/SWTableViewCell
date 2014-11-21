@@ -49,4 +49,7 @@ typedef NS_ENUM(NSInteger, SWCellState)
 
 - (BOOL)isUtilityButtonsHidden;
 
+//FilePicker changes
+@property (nonatomic, assign) CGFloat swipeOffset;
+
 @end
