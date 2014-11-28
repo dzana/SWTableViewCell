@@ -299,7 +299,6 @@ static NSString * const kTableViewPanState = @"state";
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.swipeOffset = self.cellScrollView.contentOffset.x;
     
     // Offset the contentView origin so that it appears correctly w/rt the enclosing scroll view (to which we moved it).
     CGRect frame = self.contentView.frame;
@@ -576,6 +575,9 @@ static NSString * const kTableViewPanState = @"state";
 
 - (void)updateCellState
 {
+    self.swipeOffset = self.cellScrollView.contentOffset.x;
+    [self setNeedsLayout];
+    
     // Update the cell state according to the current scroll view contentOffset.
     for (NSNumber *numState in @[
                                  @(kCellStateCenter),
